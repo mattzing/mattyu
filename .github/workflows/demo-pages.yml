@@ -5,7 +5,7 @@ name: Deploy demo site to GitHub Pages
 # the bundled skill workflow (assets/deploy-pages.yml) triggers on main.
 # Re-run: Pages was enabled manually (Source: GitHub Actions), so the
 # previously-blocked "create site" call is skipped and the deploy proceeds.
-# Env note: github-pages deployment-branch restriction opened to this branch.
+# Env note: github-pages deployment-branch restriction set to No restriction.
 
 on:
   push:
