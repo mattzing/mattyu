@@ -3,6 +3,8 @@ name: Deploy demo site to GitHub Pages
 # Demo deploy for the make-site skill. Publishes ./demo to GitHub Pages.
 # Triggered from the feature branch so it can run end-to-end in-session;
 # the bundled skill workflow (assets/deploy-pages.yml) triggers on main.
+# Re-run: Pages was enabled manually (Source: GitHub Actions), so the
+# previously-blocked "create site" call is skipped and the deploy proceeds.
 
 on:
   push:
