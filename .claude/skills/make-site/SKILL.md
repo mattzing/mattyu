@@ -29,8 +29,8 @@ that only exists locally. Get something live, then iterate with the user.
 1. **Nail the idea** (lightly) — enough to design with intent. Don't interrogate.
 2. **Build the site** — one self-contained `index.html` for most ideas; scale up
    only when the idea truly needs it.
-3. **Lock it** — by default, gate the page behind a password so not just anyone
-   with the URL can read it (skip only for intentionally public sites).
+3. **Ask about a password** — every launch, ask whether to keep it public or
+   gate it behind a password (optional; off unless they choose it).
 4. **Deploy** — push the files plus the bundled workflow; it auto-enables Pages
    and publishes.
 5. **Hand off** — share the link (and password) and offer the next iteration.
@@ -99,12 +99,21 @@ No two sites should look the same. If a `frontend-design` skill is available,
 lean on it for the build — this skill's job is the idea→live-URL pipeline; that
 one sweats the pixels.
 
-## Step 3 — Lock it (password protection)
+## Step 3 — Ask about password protection (every time)
 
-By default, protect the page with a password so that not just anyone who has the
-URL can read it — skip this only when the site is meant to be fully public (a
-marketing page, a public portfolio). Ask the user for a password, or generate a
-strong passphrase and tell them what it is. Then encrypt the finished page:
+Password protection is **optional, and off unless the user picks it** — but
+always *ask*, every single time you're about to put a site live, even if the
+user never brought it up. Don't silently decide either way. Offer a quick
+either/or before deploying:
+
+- **Public** — anyone with the link can open it (fine for marketing pages,
+  portfolios, anything meant to be found).
+- **Password-protected** — gate it behind a password so not just anyone with the
+  URL can read it.
+
+Prefer the `AskUserQuestion` tool so it's one clean choice. If they choose
+protection, get a password from them (or offer to generate a strong one and tell
+them what it is), then encrypt the finished page before deploying:
 
 ```bash
 MAKE_SITE_PASSWORD='a-long-random-passphrase' \
