@@ -156,6 +156,15 @@ provisions HTTPS automatically once DNS validates.
   workflow has `permissions: pages: write` and `id-token: write` (the bundled
   file does). On some org repos, Actions managing Pages is disabled by policy;
   then enable Pages once in Settings → Pages → Source: "GitHub Actions".
+- **`Create Pages site failed. Error: Resource not accessible by integration`**
+  — the repo's Actions `GITHUB_TOKEN` is an integration/GitHub-App token that
+  hasn't been granted Pages *administration*, so `enablement: true` can't create
+  the site. This shows up on integration-managed repos (e.g. some Claude Code on
+  the web sessions). The token usually still has `Pages: write` for *deploys* —
+  so the fix is a one-time manual enable by a human admin: **Settings → Pages →
+  Build and deployment → Source: "GitHub Actions"**, then re-run the workflow.
+  Once the site exists, `configure-pages` finds it instead of trying to create
+  it, and the deploy proceeds.
 - **404 after a successful run** — give it 1–2 minutes on first deploy; confirm
   you're hitting `/<repo>/` (trailing slash) and that asset paths are relative.
 - **Blank page / missing styles** — absolute asset paths; see the gotcha above.
