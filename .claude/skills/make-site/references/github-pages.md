@@ -165,6 +165,12 @@ provisions HTTPS automatically once DNS validates.
   Build and deployment → Source: "GitHub Actions"**, then re-run the workflow.
   Once the site exists, `configure-pages` finds it instead of trying to create
   it, and the deploy proceeds.
+- **Deploy fails in ~1s with no logs (job never gets a runner)** — the
+  `github-pages` environment restricts deployments to the **default branch** by
+  default, and you're deploying from another branch. Either deploy from the
+  default branch (the bundled workflow triggers on `main`, so this normally
+  never bites), or open Settings → Environments → github-pages → Deployment
+  branches and tags → "No restriction" (or add the branch).
 - **404 after a successful run** — give it 1–2 minutes on first deploy; confirm
   you're hitting `/<repo>/` (trailing slash) and that asset paths are relative.
 - **Blank page / missing styles** — absolute asset paths; see the gotcha above.
