@@ -115,7 +115,9 @@ MAKE_SITE_PASSWORD='a-long-random-passphrase' \
 deploy. What ships is an encrypted "lock screen" (AES-256-GCM, key derived from
 the password); the browser decrypts the real page locally only when the right
 password is entered. **Deploy only the gated output — never leave the
-unprotected source in the publish folder**, or it's reachable directly.
+unprotected source in the publish folder**, or it's reachable directly. (On a
+public repo the committed plaintext source is also browsable on github.com — for
+real privacy keep the source in a private repo; see the reference.)
 
 Be straight with the user about what this is: it keeps casual visitors and search
 engines out and is only as strong as the password — great for soft privacy, not

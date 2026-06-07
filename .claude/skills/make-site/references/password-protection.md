@@ -70,6 +70,12 @@ to that provider). Reach for them when the content actually matters.
   the published folder — e.g. don't ship both `site.html` and the gated
   `index.html` in the same deploy dir, or the plaintext is reachable at
   `/site.html`. Keep the source outside the publish directory.
+- **A public repo exposes the plaintext source.** Pages repos are usually
+  public, and the gate only encrypts the *deployed* page — the unprotected
+  source committed to the repo is still browsable on github.com. For genuine
+  privacy, don't commit the plaintext to a public repo: keep the source in a
+  private repo (or out of version control) and commit/deploy only the gated
+  output.
 - **No sensitive data in side files.** Images/JSON/etc. deployed next to the gate
   are still public. Inline anything sensitive into the page that gets encrypted.
 - **Every page needs its own gate.** A multi-page site must encrypt each page (or
